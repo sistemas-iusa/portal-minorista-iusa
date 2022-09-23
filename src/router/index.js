@@ -1,44 +1,58 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import SignIn from '../views/auth/SignIn.vue'
-import store from '@/store'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import SignIn from "../views/auth/SignIn.vue";
+import ClientRequest from "../views/client_request/ClientRequest.vue";
+import store from "@/store";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'signin',
+    path: "/",
+    name: "SignIn",
     component: SignIn,
     beforeEnter: (to, from, next) => {
       if (store.getters["auth/authenticated"]) {
         return next({
-          name: "home",
+          name: "Home",
         });
       }
       next();
     },
   },
   {
-    path: '/home',
-    name: 'home',
+    path: "/home",
+    name: "Home",
     component: HomeView,
     beforeEnter: (to, from, next) => {
-      if(!store.getters['auth/authenticated']){
+      if (!store.getters["auth/authenticated"]) {
         return next({
-          name: 'signin'
-        })
+          name: "SignIn",
+        });
       }
-      next()
-    }
+      next();
+    },
   },
-]
+  {
+    path: "/client-request",
+    name: "ClientRequest",
+    component: ClientRequest,
+    beforeEnter: (to, from, next) => {
+      if (!store.getters["auth/authenticated"]) {
+        return next({
+          name: "SignIn",
+        });
+      }
+      next();
+    },
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

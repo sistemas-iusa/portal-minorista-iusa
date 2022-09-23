@@ -1,7 +1,7 @@
 <template>
-  <div class="home">
+  <div>
     <p></p>
-    <h1>Home</h1>
+    <h1>Solicitud Cliente</h1>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 // @ is an alias to /src
 
 export default {
-  name: "HomeView",
+  name: "ClientRequest",
   components: {},
 };
 </script>
