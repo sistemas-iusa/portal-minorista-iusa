@@ -2,6 +2,9 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import SignIn from "../views/auth/SignIn.vue";
+import SignUp from "../views/auth/SignUp.vue";
+import PasswordReset from "../views/auth/PasswordReset.vue";
+import ConfirmAccount from "../views/auth/ConfirmAccount.vue";
 import ClientRequest from "../views/client_request/ClientRequest.vue";
 import store from "@/store";
 
@@ -47,10 +50,61 @@ const routes = [
       next();
     },
   },
+  {
+    path: "/signup",
+    name: "SignUp",
+    component: SignUp,
+    beforeEnter: (to, from, next) => {
+      if (store.getters["auth/authenticated"]) {
+        return next({
+          name: "Home",
+        });
+      }
+      next();
+    },
+  },
+  {
+    path: "/password-reset",
+    name: "PasswordReset",
+    component: PasswordReset,
+    beforeEnter: (to, from, next) => {
+      if (store.getters["auth/authenticated"]) {
+        return next({
+          name: "Home",
+        });
+      }
+      next();
+    },
+  },
+  {
+    path: "/confirm-account",
+    name: "ConfirmAccount",
+    component: ConfirmAccount,
+    beforeEnter: (to, from, next) => {
+      if (store.getters["auth/authenticated"]) {
+        return next({
+          name: "Home",
+        });
+      }
+      next();
+    },
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    beforeEnter: (to, from, next) => {
+      if (!store.getters["auth/authenticated"]) {
+        return next({
+          name: "SignIn",
+        });
+      }
+      next();
+    },
+  },
 ];
 
 const router = new VueRouter({
-  mode: "history",
+  mode: "hash",
+  //mode: "history",
   base: process.env.BASE_URL,
   routes,
 });

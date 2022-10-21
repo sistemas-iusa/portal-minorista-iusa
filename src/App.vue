@@ -1,19 +1,24 @@
 <template>
   <div id="app">
-    <NavBar />
-    <router-view />
+    <v-app>
+      <v-main>
+        <NavBar />
+        <router-view />
+        <Footer />
+      </v-main>
+    </v-app>
   </div>
 </template>
 
 <script>
 import NavBar from "@/template/partials/NavBar.vue";
 //import SideBar from "@/template/partials/SideBar.vue";
-//import Footer from "@/template/partials/Footer.vue";
+import Footer from "@/template/partials/Footer.vue";
 export default {
   components: {
     NavBar,
     //SideBar,
-    //Footer,
+    Footer,
   },
 };
 </script>
