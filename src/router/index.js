@@ -5,6 +5,7 @@ import SignIn from "../views/auth/SignIn.vue";
 import SignUp from "../views/auth/SignUp.vue";
 import PasswordReset from "../views/auth/PasswordReset.vue";
 import ConfirmAccount from "../views/auth/ConfirmAccount.vue";
+import RecoverPassword from "../views/auth/RecoverPassword.vue";
 import ClientRequest from "../views/client_request/ClientRequest.vue";
 import store from "@/store";
 
@@ -80,6 +81,19 @@ const routes = [
     path: "/confirm-account",
     name: "ConfirmAccount",
     component: ConfirmAccount,
+    beforeEnter: (to, from, next) => {
+      if (store.getters["auth/authenticated"]) {
+        return next({
+          name: "Home",
+        });
+      }
+      next();
+    },
+  },
+  {
+    path: "/recover-password/:id",
+    name: "RecoverPassword",
+    component: RecoverPassword,
     beforeEnter: (to, from, next) => {
       if (store.getters["auth/authenticated"]) {
         return next({

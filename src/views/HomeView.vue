@@ -1,318 +1,1027 @@
 <template>
   <v-container fluid class="grey lighten-5">
     <v-row dense>
-      <v-col cols="12" sm="6" md="8">
-        <v-carousel>
-          <v-carousel-item
-            v-for="(item, i) in items"
-            :key="i"
-            :src="item.src"
-            :href="item.href"
-            target="_blank"
-          ></v-carousel-item>
-        </v-carousel>
-      </v-col>
-      <v-col cols="6" md="4">
-        <v-card>
-          <v-img class="white--text align-end" src="img/banner_1.svg"> </v-img>
-        </v-card>
-        <v-card style="margin-top: 10px">
-          <v-img class="white--text align-end" src="img/banner_1.svg"> </v-img>
-        </v-card>
-      </v-col>
-    </v-row>
-    <v-row dense>
-      <v-col sm="6">
-        <!-- <v-card class="pa-2" outlined tile> One of three columns </v-card> -->
-        <span style="font-weight: 800">OFERTAS DEL DÍA</span>
-        <v-slide-group class="pa-4" active-class="success" show-arrows>
-          <v-slide-item v-for="(item, i) in items_product" :key="i">
-            <v-card class="mx-auto" max-width="280" style="text-align: left">
-              <v-img :src="item.src" width="180px"></v-img>
-              <v-card-title>
-                <v-chip class="ma-1" color="red" text-color="white">
-                  - {{ item.percent }}
-                </v-chip>
-                <span> {{ item.less }}</span>
-              </v-card-title>
-              <v-card-subtitle>
-                Precio antes <del>{{ item.price }}</del></v-card-subtitle
-              >
-              <v-card-text>
-                <strong>{{ item.name_product }}</strong>
-              </v-card-text>
-            </v-card>
-          </v-slide-item>
-        </v-slide-group>
-        <span style="color: red; font-size: 12px"
-          >Descubre todas las ofertas</span
-        >
-      </v-col>
-      <v-col sm="2" v-for="(item, i) in new_product" :key="i">
-        <span style="font-weight: 800">PRODUCTOS NUEVOS</span>
-        <v-card class="mx-auto" max-width="280" style="text-align: left">
-          <v-img :src="item.src" width="180px"></v-img>
-          <v-card-title
-            style="
-              font-size: 0.875rem;
-              font-weight: 400;
-              line-height: 1.375rem;
-              letter-spacing: 0.0071428571em;
-            "
-          >
-            <strong style="color: rgba(0, 0, 0, 0.6)">
-              {{ item.name_product }}
-            </strong>
-          </v-card-title>
-          <v-card-subtitle> {{ item.description }} </v-card-subtitle>
-        </v-card>
-        <span style="color: red; font-size: 12px"
-          >Descubre nuestros productos nuevos</span
-        >
-        <!-- <v-card class="pa-2" outlined tile> One of three columns </v-card> -->
-      </v-col>
-      <v-col cols="6" md="4">
-        <v-card>
-          <v-img class="white--text align-end" src="img/banner_1.svg"> </v-img>
-        </v-card>
-        <v-card style="margin-top: 10px">
-          <v-card-title> SÍGUENOS </v-card-title>
-          <v-card-actions style="padding-bottom: 20px">
-            <v-btn class="mx-2" small fab dark color="red">
-              <v-icon dark> mdi-facebook </v-icon>
-            </v-btn>
-            <v-btn class="mx-2" small fab dark color="red">
-              <v-icon dark> mdi-youtube </v-icon>
-            </v-btn>
-            <v-btn class="mx-2" small fab dark color="red">
-              <v-icon dark> mdi-instagram </v-icon>
-            </v-btn>
-            <v-btn class="mx-2" small fab dark color="red">
-              <v-icon dark> mdi-twitter </v-icon>
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-        <br />
-      </v-col>
-    </v-row>
-    <p></p>
-    <v-container fluid>
-      <v-row>
-        <v-img class="white--text align-end" src="img/banner_4.svg"> </v-img>
-      </v-row>
-    </v-container>
-    <p></p>
-    <v-row>
-      <v-col>
-        <v-text-field
-          append-icon="mdi-magnify"
-          label="Buscar producto por SKU"
-          filled
-          rounded
-          dense
-        ></v-text-field>
-      </v-col>
-    </v-row>
-    <p></p>
-    <v-row dense>
-      <p>LO MAS VENDIDO</p>
-      <v-col sm="12">
-        <v-slide-group class="pa-4" active-class="success" show-arrows>
-          <v-slide-item v-for="(item, i) in sold_most" :key="i">
-            <v-card class="mx-auto" max-width="300" style="text-align: left">
-              <v-card-subtitle>
-                <strong>{{ item.name_product }} </strong></v-card-subtitle
-              >
-              <v-card-subtitle style="margin-top: -30px">
-                SKU: {{ item.sku }}</v-card-subtitle
-              >
-              <v-img :src="item.src" width="200px"></v-img>
-              <v-card-subtitle class="d-flex justify-center">
-                Empaque: {{ item.pack }}</v-card-subtitle
-              >
-              <v-card-title
-                style="margin-top: -35px"
-                class="d-flex justify-center"
-              >
-                <strong
-                  ><span> A {{ item.price }}</span></strong
+      <!---Start col-left-->
+      <v-col md="12">
+        <v-card class="mx-auto" outlined :style="'border: 0px'">
+          <v-list-item class="ma-0">
+            <v-col md="4">
+              <strong>Bienvenido, </strong>
+              <span>{{ data.NAME1 }}</span>
+              <span style="color: #979797; font-size: 10px">
+                / A 12 Octubre 2022 a las 12:02pm
+              </span>
+            </v-col>
+            <v-col md="8" class="text-justify boder-side-small">
+              <br />
+              <p>
+                <v-icon style="color: red" size="45" dense="true"
+                  >mdi-shield-lock-outline</v-icon
                 >
-              </v-card-title>
-              <v-card-actions class="d-flex justify-center">
-                <v-btn rounded color="primary" dark small>
-                  <v-icon left> mdi-cart </v-icon> Agregar al carrito
-                </v-btn>
-              </v-card-actions>
-              <v-card-actions class="d-flex justify-center">
-                <v-btn rounded color="success" dark small>
-                  <v-icon left> mdi-check </v-icon> Comprar Ahora
-                </v-btn>
-              </v-card-actions>
-              <p></p>
-            </v-card>
-          </v-slide-item>
-        </v-slide-group>
+                <span class="text-header-anounce">Seguro y</span>
+                <v-icon style="color: red" size="45" dense="true"
+                  >mdi-cash-multiple</v-icon
+                >
+                <span class="text-header-anounce">fácil de pagar.</span>
+                <span class="text-header-red">¡Vive la experiencia IUSA!</span>
+              </p>
+            </v-col>
+          </v-list-item>
+          <v-row class="mt-n5 ma-4">
+            <v-col md="2" style="vertical-align: bottom">
+              <v-btn icon style="color: #000 !important">
+                <v-icon>mdi-filter-outline</v-icon>
+              </v-btn>
+              <strong>Filtro X Grupo:</strong>
+            </v-col>
+            <v-col md="2">
+              <v-checkbox
+                v-model="ex4"
+                label="Generar Pedido"
+                color="black"
+                value="balck"
+                class="black-label"
+                hide-details
+              ></v-checkbox>
+            </v-col>
+            <v-col md="2">
+              <v-checkbox
+                v-model="ex4"
+                label="Productos"
+                color="black"
+                value="balck"
+                class="black-label"
+                hide-details
+              ></v-checkbox>
+            </v-col>
+            <v-col md="2">
+              <v-checkbox
+                v-model="ex4"
+                label="Desempeño"
+                class="blue-label"
+                color="#0000FF"
+                value="#0000FF"
+                hide-details
+              ></v-checkbox>
+            </v-col>
+            <v-col md="2">
+              <v-checkbox
+                v-model="ex4"
+                label="Nivel de Servicio"
+                class="red-label"
+                color="red"
+                value="red"
+                hide-details
+              ></v-checkbox>
+            </v-col>
+            <v-col md="2">
+              <v-checkbox
+                v-model="ex4"
+                label="Beneficios y Bonos"
+                class="gold-label"
+                color="#FFD700"
+                value="#FFD700"
+                hide-details
+              ></v-checkbox>
+            </v-col>
+          </v-row>
+        </v-card>
       </v-col>
+      <v-col md="3">
+        <!--Start v-Card Datos Generales-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4"
+          outlined
+          :style="'border: 4px solid gray;'"
+        >
+          <v-list-item-content>
+            <div class="text-general">
+              <v-icon>mdi-account-circle</v-icon>
+              DATOS CLIENTE:
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <v-list-item three-line>
+            <v-list-item-content>
+              <div class="text-overline mb-4">
+                <v-avatar size="100">
+                  <img src="img/grupo_trejo.jpeg" alt="Cliente" />
+                </v-avatar>
+              </div>
+              <v-list-item-title class="text-h5 mb-1">
+                {{ data.NAME1 }}
+                <v-list-item-subtitle> {{ data.KUNNR }} </v-list-item-subtitle>
+              </v-list-item-title>
+              <br />
+
+              <v-list-item three-line class="ma-5">
+                <v-list-item-content>
+                  <strong>RFC:</strong><span>{{ data.STCD1 }}</span>
+                </v-list-item-content>
+                <v-list-item-content>
+                  <strong>Alta:</strong><span>22/04/2021</span>
+                </v-list-item-content>
+              </v-list-item>
+              <br />
+              <p class="text-justify mt-n5 ma-5">
+                <strong>Domicilio Fiscal:</strong>
+              </p>
+              <br />
+              <p class="text-justify mt-n5 ma-5">
+                {{ data.ORT01 }}
+              </p>
+              <br />
+              <p class="text-justify mt-n5 ma-5">
+                <strong>Domicilio de Entrega:</strong>
+              </p>
+              <br />
+              <p class="text-justify mt-n5 ma-5">
+                Jose Maria Rico 102, Col del Valle Centro , Benito Juarez, 03100
+                Ciudad de Mexico, CDMX
+              </p>
+
+              <v-list-item three-line>
+                <v-list-item-content>
+                  <p class="text-justify mt-n5 ma-5">
+                    <strong>Mun/Del:</strong>
+                  </p>
+                  <p class="text-justify mt-n5 ma-5">{{ data.VKGRP }}</p>
+                </v-list-item-content>
+                <v-list-item-content>
+                  <p class="text-justify mt-n5 ma-5">
+                    <strong>Estado:</strong>
+                  </p>
+                  <p class="text-justify mt-n5 ma-5">{{ data.REGIO }}</p>
+                </v-list-item-content>
+              </v-list-item>
+
+              <div class="ma-5" style="color: red !important">
+                <v-icon style="color: red">mdi-email</v-icon>
+                <span> {{ data.SMTP_ADDR }} </span>
+              </div>
+
+              <div style="color: blue !important">
+                <a
+                  ><v-icon style="color: blue">mdi-bookmark</v-icon>
+                  <span> {{ data.TELF1 }}</span></a
+                >
+              </div>
+
+              <v-layout justify-center>
+                <v-switch v-model="switch1" class="green-label"
+                  ><template v-slot:label>
+                    <span class="pr-2"> El número tiene Whatsapp </span>
+                    <v-icon style="color: #25d366">mdi-whatsapp</v-icon>
+                  </template></v-switch
+                >
+              </v-layout>
+
+              <div class="text-center">
+                <v-btn
+                  type="submit"
+                  rounded
+                  block
+                  style="
+                    background-color: #2fd410;
+                    color: #fff;
+                    text-transform: none;
+                    font-weight: 800;
+                  "
+                >
+                  Editar
+                </v-btn>
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+        <!--End v-card Datos Generales-->
+        <!--Start v-card Contactos-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid gray;'"
+        >
+          <v-list-item-content>
+            <div class="text-general">
+              <v-icon>mdi-account-details</v-icon>
+              CONTACTO IUSA EN LÍNEA:
+            </div>
+          </v-list-item-content>
+        </v-card>
+
+        <v-card class="mx-auto rounded-lg elevation-4 mb-4" outlined>
+          <v-list-item three-line>
+            <v-avatar size="50" color="grey">
+              <img src="img/banner-login-2.png" alt="Cliente" />
+            </v-avatar>
+            <v-list-item-content>
+              <div class="text-justify ma-2">
+                <strong>Asesor:</strong>
+                <p>Gabriela Gonzalez Mont</p>
+              </div>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item-group class="ml-5 mb-4">
+            <div class="text-justify ma-1" style="color: blue !important">
+              <a
+                ><v-icon style="color: blue">mdi-cellphone-check</v-icon>
+                <v-icon style="color: #25d366">mdi-whatsapp</v-icon>
+                <span> 71-2250-5880</span></a
+              >
+            </div>
+            <div class="text-justify ma-1" style="color: red !important">
+              <v-icon style="color: red">mdi-email</v-icon>
+              <span> omarmartinez@isua.com.mx</span>
+            </div>
+          </v-list-item-group>
+        </v-card>
+        <!--End v-card Contactos-->
+        <v-card class="mx-auto rounded-lg elevation-5 ma-5" outlined>
+          <v-list-item-content class="text-justify ml-5">
+            <div class="mb-n3">
+              <strong>SÍGUENOS</strong>
+            </div>
+          </v-list-item-content>
+          <v-list-item three-line>
+            <v-list-item-content>
+              <a><v-icon style="color: red" size="35">mdi-facebook </v-icon></a>
+            </v-list-item-content>
+            <v-list-item-content>
+              <a><v-icon style="color: red" size="35">mdi-youtube</v-icon></a>
+            </v-list-item-content>
+            <v-list-item-content>
+              <a><v-icon style="color: red" size="35">mdi-instagram</v-icon></a>
+            </v-list-item-content>
+            <v-list-item-content>
+              <a><v-icon style="color: red" size="35">mdi-twitter</v-icon></a>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+        <!--End v-card Contactos-->
+      </v-col>
+      <!---End v-col left-->
+      <!---Start v-col center-->
+      <v-col md="6">
+        <!--Start v-card Estado-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid #0000FF;'"
+        >
+          <v-list-item-content>
+            <div class="text-desp">
+              <v-icon style="color: #0000ff !important"
+                >mdi-wallet-plus-outline</v-icon
+              >
+              CARTERA Y LINEA DE CREDITO:
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <v-list-item three-line>
+            <v-list-item-title class="text-h5 mb-2">
+              Límite de crédito
+              <span
+                ><strong>{{ data.KLIMK }}</strong></span
+              >
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-progress-linear
+              class="rounded-lg"
+              v-model="power"
+              color="blue"
+              height="25"
+            >
+              <template v-slot:default="{ value }">
+                <strong>{{ Math.ceil(value) }}%</strong>
+              </template>
+            </v-progress-linear>
+          </v-list-item>
+          <v-list-item three-line>
+            <v-col md="8">
+              <div class="text-justify ma-3">
+                <p>
+                  S.corte <strong>{{ data.SKFOR }}</strong>
+                </p>
+              </div>
+              <div class="text-justify ma-1">
+                Estatus folio: <span> Análisis de Credito</span>
+                <br />
+                Plazo: <span> 30 Días</span>
+                <br />
+                Monto Vencido: <span> $0.00</span>
+                <br />
+                Partidas Vencidas: <span> 0</span>
+                <br />
+                Notas de crédito pendientes de aplicar: <span> $0</span>
+                <br />
+                Pagos pendientes de aplicar: <span>$0</span>
+                <br />
+              </div>
+            </v-col>
+            <v-col md="4">
+              <div class="text-justify mb-4">
+                <p>S.disponible <strong>$857,265.67</strong></p>
+              </div>
+              <div class="text-center mb-4">
+                <p class="text-big-num">$0.00</p>
+                <p>Monto Total</p>
+              </div>
+            </v-col>
+          </v-list-item>
+          <v-list-item class="text-center mb-4">
+            <v-btn
+              type="submit"
+              rounded
+              block
+              style="
+                background-color: #2fd410;
+                color: #fff;
+                text-transform: none;
+                font-weight: 800;
+              "
+            >
+              <v-icon>mdi-download</v-icon>
+              Estado de Cuenta
+            </v-btn>
+          </v-list-item>
+        </v-card>
+        <!--End v-card Estado-->
+        <!--Start v-card Historicos-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid #0000FF;'"
+        >
+          <v-list-item-content>
+            <div class="text-desp">
+              <v-icon style="color: #0000ff !important"
+                >mdi-clock-time-five-outline</v-icon
+              >
+              HISTORICO DE COMPRAS
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <v-data-table
+            :headers="headers"
+            :items="concepto"
+            :items-per-page="5"
+            item-key="name"
+            class="elevation-1"
+            locale="esp"
+            :footer-props="{
+              showFirstLastPage: true,
+              firstIcon: 'mdi-arrow-collapse-left',
+              lastIcon: 'mdi-arrow-collapse-right',
+              prevIcon: 'mdi-minus',
+              nextIcon: 'mdi-plus',
+            }"
+          ></v-data-table>
+        </v-card>
+        <!--End v-card historico-->
+        <!--Start v-card indicadores-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid #0000FF;'"
+        >
+          <v-list-item-content>
+            <div class="text-desp">
+              <v-icon style="color: #0000ff !important">mdi-chart-line</v-icon>
+              INDICADORES PARA BONO
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <div class="ma-4">
+            <v-list-item three-line class="mb-1 ma-4">
+              <v-select
+                :items="items"
+                label="Pagos Mensuales (Sin IVA):"
+                dense
+                outlined
+              ></v-select>
+            </v-list-item>
+            <v-list-item>
+              <v-progress-linear
+                class="rounded-lg"
+                v-model="ind_1"
+                color="blue"
+                height="25"
+              >
+                <template v-slot:default="{ value }">
+                  <strong>{{ Math.ceil(value) }}%</strong>
+                </template>
+              </v-progress-linear>
+            </v-list-item>
+            <v-list-item>
+              <v-col md="6">
+                <div>Ingresos: <strong>$0</strong></div>
+              </v-col>
+              <v-col md="6">
+                <div>Total: <strong>$0</strong></div>
+              </v-col>
+            </v-list-item>
+            <v-list-item-content class="text-center">
+              <div><strong>Pagos y Porcentaje Vía TEL (Sin IVA)</strong></div>
+            </v-list-item-content>
+            <v-list-item>
+              <v-progress-linear
+                class="rounded-lg"
+                v-model="ind_1"
+                color="blue"
+                height="25"
+              >
+                <template v-slot:default="{ value }">
+                  <strong>{{ Math.ceil(value) }}%</strong>
+                </template>
+              </v-progress-linear>
+            </v-list-item>
+            <v-list-item>
+              <v-col md="6">
+                <div>Ingresos: <strong>$0</strong></div>
+              </v-col>
+              <v-col md="6">
+                <div>Total: <strong>$0</strong></div>
+              </v-col>
+            </v-list-item>
+            <v-list-item-content class="text-center">
+              <div><strong>Pagos y Porcentaje Vía SPEI (Sin IVA)</strong></div>
+            </v-list-item-content>
+            <v-list-item>
+              <v-progress-linear
+                class="rounded-lg"
+                v-model="ind_1"
+                color="blue"
+                height="25"
+              >
+                <template v-slot:default="{ value }">
+                  <strong>{{ Math.ceil(value) }}%</strong>
+                </template>
+              </v-progress-linear>
+            </v-list-item>
+            <v-list-item>
+              <v-col md="6">
+                <div>Ingresos: <strong>$0</strong></div>
+              </v-col>
+              <v-col md="6">
+                <div>Total: <strong>$0</strong></div>
+              </v-col>
+            </v-list-item>
+            <v-list-item-content class="text-center">
+              <div>
+                <strong style="color: red"
+                  >TOTAL de Pagos y Porcentaje Vía TEL + SPEI:</strong
+                >
+              </div>
+            </v-list-item-content>
+            <v-list-item>
+              <v-progress-linear
+                class="rounded-lg"
+                v-model="ind_1"
+                color="blue"
+                height="25"
+              >
+                <template v-slot:default="{ value }">
+                  <strong>{{ Math.ceil(value) }}%</strong>
+                </template>
+              </v-progress-linear>
+            </v-list-item>
+            <v-list-item>
+              <v-col md="6">
+                <div>Ingresos: <strong>$0</strong></div>
+              </v-col>
+              <v-col md="6">
+                <div>Total: <strong>$0</strong></div>
+              </v-col>
+            </v-list-item>
+          </div>
+        </v-card>
+        <!--End v-card Indicadores-->
+        <!--Star v-card indicadores-crecimiento-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid #0000FF;'"
+        >
+          <v-list-item-content>
+            <div class="text-desp">
+              <v-icon style="color: #0000ff !important">mdi-finance</v-icon>
+              INDICADORES DE CRECIMIENTO
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <v-list-item-content class="text-center text-bold">
+            <div>
+              <strong style="color: green"
+                >Crecimiento anual inflacionado acumulado a meses
+                completos:</strong
+              >
+            </div>
+          </v-list-item-content>
+          <v-list-item three-line>
+            <v-list-item-content>
+              <p><strong>Enero - Septiembre 2022</strong></p>
+              <v-list-item>
+                <v-progress-linear
+                  class="rounded-lg"
+                  v-model="ind_1"
+                  color="blue"
+                  height="25"
+                >
+                  <template v-slot:default="{ value }">
+                    <strong>{{ Math.ceil(value) }}%</strong>
+                  </template>
+                </v-progress-linear>
+              </v-list-item>
+            </v-list-item-content>
+            <v-list-item-content>
+              <p><strong>Enero - Junio 2022</strong></p>
+              <v-list-item>
+                <v-progress-linear
+                  class="rounded-lg"
+                  v-model="ind_1"
+                  color="blue"
+                  height="25"
+                >
+                  <template v-slot:default="{ value }">
+                    <strong>{{ Math.ceil(value) }}%</strong>
+                  </template>
+                </v-progress-linear>
+              </v-list-item>
+            </v-list-item-content>
+            <v-list-item-content>
+              <p><strong>Enero - Marzo 2022</strong></p>
+              <v-list-item>
+                <v-progress-linear
+                  class="rounded-lg"
+                  v-model="ind_1"
+                  color="blue"
+                  height="25"
+                >
+                  <template v-slot:default="{ value }">
+                    <strong>{{ Math.ceil(value) }}%</strong>
+                  </template>
+                </v-progress-linear>
+              </v-list-item>
+            </v-list-item-content>
+          </v-list-item>
+          <v-list-item-content class="text-center">
+            <div>
+              <strong style="color: #32cd32"
+                >Crecimiento inflacionado últimos 3 meses vs mismos meses año
+                anterior:</strong
+              >
+            </div>
+          </v-list-item-content>
+          <v-list-item three-line>
+            <v-list-item-content>
+              <p><strong>Jul-Ag-Sep</strong></p>
+              <v-list-item>
+                <v-progress-linear
+                  class="rounded-lg"
+                  v-model="ind_1"
+                  color="blue"
+                  height="25"
+                >
+                  <template v-slot:default="{ value }">
+                    <strong>{{ Math.ceil(value) }}%</strong>
+                  </template>
+                </v-progress-linear>
+              </v-list-item>
+            </v-list-item-content>
+            <v-list-item-content>
+              <p><strong>Abr-May-Jun</strong></p>
+              <v-list-item>
+                <v-progress-linear
+                  class="rounded-lg"
+                  v-model="ind_1"
+                  color="blue"
+                  height="25"
+                >
+                  <template v-slot:default="{ value }">
+                    <strong>{{ Math.ceil(value) }}%</strong>
+                  </template>
+                </v-progress-linear>
+              </v-list-item>
+            </v-list-item-content>
+            <v-list-item-content>
+              <p><strong>En-Feb-Mar</strong></p>
+              <v-list-item>
+                <v-progress-linear
+                  class="rounded-lg"
+                  v-model="ind_1"
+                  color="blue"
+                  height="25"
+                >
+                  <template v-slot:default="{ value }">
+                    <strong>{{ Math.ceil(value) }}%</strong>
+                  </template>
+                </v-progress-linear>
+              </v-list-item>
+            </v-list-item-content>
+            <v-list-item-content>
+              <p><strong>Oct-Nov-Dic</strong></p>
+              <v-list-item>
+                <v-progress-linear
+                  class="rounded-lg"
+                  v-model="ind_1"
+                  color="blue"
+                  height="25"
+                >
+                  <template v-slot:default="{ value }">
+                    <strong>{{ Math.ceil(value) }}%</strong>
+                  </template>
+                </v-progress-linear>
+              </v-list-item>
+            </v-list-item-content>
+          </v-list-item>
+        </v-card>
+        <!--End v-card indicadores-crecimiento-->
+      </v-col>
+      <!--End v-col center-->
+      <!---Start v-col right-->
+      <v-col md="3">
+        <!--Start v-card tiempo-entrega-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid red;'"
+        >
+          <v-list-item-content>
+            <div class="text-niv">
+              <v-icon style="color: red !important">mdi-calendar-check</v-icon>
+              TIEMPO DE ENTREGA DE LOS ÚLTIMOS PEDIDOS
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <v-list-item three-line class="mb-1 ma-4">
+            <v-select
+              :items="items"
+              label="Octubre 2022:"
+              dense
+              outlined
+            ></v-select>
+          </v-list-item>
+          <v-data-table
+            :headers="headers_time"
+            :items="time"
+            :items-per-page="5"
+            item-key="name"
+            class="elevation-1"
+            locale="esp"
+            :footer-props="{
+              showFirstLastPage: true,
+              firstIcon: 'mdi-arrow-collapse-left',
+              lastIcon: 'mdi-arrow-collapse-right',
+              prevIcon: 'mdi-minus',
+              nextIcon: 'mdi-plus',
+            }"
+          ></v-data-table>
+        </v-card>
+        <!--End v-card timepo-entrega-->
+        <!--Start v-card niveles-servicio-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid red;'"
+        >
+          <v-list-item-content>
+            <div class="text-niv">
+              <v-icon style="color: red !important">mdi-alarm</v-icon>
+              NIVELES DE SERVICIO Y TIEMPO DE ENTREGA
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <v-list-item three-line class="mb-1 ma-4">
+            <v-select
+              :items="items"
+              label="Octubre 2022:"
+              dense
+              outlined
+            ></v-select>
+          </v-list-item>
+          <v-data-table
+            :headers="headers_niv"
+            :items="niv"
+            :items-per-page="5"
+            item-key="name"
+            class="elevation-1"
+            locale="esp"
+            :footer-props="{
+              showFirstLastPage: true,
+              firstIcon: 'mdi-arrow-collapse-left',
+              lastIcon: 'mdi-arrow-collapse-right',
+              prevIcon: 'mdi-minus',
+              nextIcon: 'mdi-plus',
+            }"
+          ></v-data-table>
+        </v-card>
+        <!--End v-card niveles-servicio-->
+        <!--start v-card reserva-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid #DAA520;'"
+        >
+          <v-list-item-content>
+            <div class="text-gold">
+              <v-icon style="color: #daa520 !important"
+                >mdi-file-document-outline</v-icon
+              >
+              RESERVA DE GARANTÍA
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <v-list-item three-line class="mb-1 ma-4">
+            <v-select
+              :items="items"
+              label="Octubre 2022:"
+              dense
+              outlined
+            ></v-select>
+          </v-list-item>
+          <v-data-table
+            :headers="headers_res"
+            :items="res"
+            :items-per-page="5"
+            item-key="name"
+            class="elevation-1"
+            locale="esp"
+            :footer-props="{
+              showFirstLastPage: true,
+              firstIcon: 'mdi-arrow-collapse-left',
+              lastIcon: 'mdi-arrow-collapse-right',
+              prevIcon: 'mdi-minus',
+              nextIcon: 'mdi-plus',
+            }"
+          ></v-data-table>
+        </v-card>
+        <!--end v-card reserva-->
+        <!--Star v-card bono-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid #DAA520;'"
+        >
+          <v-list-item-content>
+            <div class="text-gold">
+              <v-icon style="color: #daa520 !important"
+                >mdi-numeric-3-box-outline</v-icon
+              >
+              BONO
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <v-list-item three-line class="mb-1 ma-2">
+            <v-select
+              :items="items"
+              label="Octubre 2022:"
+              dense
+              outlined
+            ></v-select>
+          </v-list-item>
+          <v-data-table
+            :headers="headers_bono"
+            :items="bono"
+            :items-per-page="5"
+            item-key="name"
+            class="elevation-1"
+            locale="esp"
+            :footer-props="{
+              showFirstLastPage: true,
+              firstIcon: 'mdi-arrow-collapse-left',
+              lastIcon: 'mdi-arrow-collapse-right',
+              prevIcon: 'mdi-minus',
+              nextIcon: 'mdi-plus',
+            }"
+          ></v-data-table>
+          <v-list-item-content class="text-center text-bold">
+            <div>
+              **Los montos de los bonos son por el periodoque se obtuvieron
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <!--End v-card nono-->
+        <!--Start v-card total-beneficio-->
+        <v-card
+          class="mx-auto rounded-lg elevation-4 mb-4"
+          outlined
+          :style="'border: 4px solid #DAA520;'"
+        >
+          <v-list-item-content>
+            <div class="text-gold">
+              <v-icon style="color: #daa520 !important"
+                >mdi-bookmark-plus-outline</v-icon
+              >
+              TOTAL DE BENEFICIOS
+            </div>
+          </v-list-item-content>
+        </v-card>
+        <v-card class="mx-auto rounded-xl elevation-5 ma-5" outlined>
+          <v-list-item three-line class="mb-1 ma-4">
+            <v-select
+              :items="items"
+              label="Octubre 2022:"
+              dense
+              outlined
+            ></v-select>
+          </v-list-item>
+          <v-data-table
+            :headers="headers_ben"
+            :items="ben"
+            :items-per-page="5"
+            item-key="name"
+            class="elevation-1"
+            locale="esp"
+            :footer-props="{
+              showFirstLastPage: true,
+              firstIcon: 'mdi-arrow-collapse-left',
+              lastIcon: 'mdi-arrow-collapse-right',
+              prevIcon: 'mdi-minus',
+              nextIcon: 'mdi-plus',
+            }"
+          ></v-data-table>
+        </v-card>
+        <!--End v-card total-beneficio-->
+      </v-col>
+      <!---End v-col right-->
     </v-row>
     <p></p>
-    <v-container class="grey lighten-5">
-      <h3>Nuestras Marcas</h3>
-      <p></p>
-      <h5>Calidad, innovación y experiencia nos respaldan</h5>
-    </v-container>
-    <v-row>
-      <v-slide-group class="pa-4" active-class="success" show-arrows>
-        <v-slide-item v-for="(item, i) in brand" :key="i">
-          <v-card class="ma-2" style="height: auto">
-            <v-img
-              class="white--text align-end"
-              :src="item.src"
-              style="display: block; height: auto; margin: auto; width: 160px"
-            >
-            </v-img>
-          </v-card>
-        </v-slide-item>
-      </v-slide-group>
-    </v-row>
   </v-container>
 </template>
 
 <script>
+import axios from "axios";
 export default {
-  data: () => ({
-    items: [
-      {
-        src: "img/slide_01@2x.png",
-        href: "https://iusa.com.mx/catalogo_construccion/",
-      },
-    ],
-    new_product: [
-      {
-        src: "img/618750_1.jpg",
-        name_product: "BOMBA PRESURIZADORA IUSA, 3 SERVICIOS",
-        description:
-          "Por su calidad, es ideal para su uso residencial e incrementa la presión del agua en servicios como lavavajillas o regaderas de alto flujo.",
-      },
-    ],
-    sold_most: [
-      {
-        src: "img/tuberia-rigida-de-cobre_1.jpg",
-        sku: "267193,300749,300747",
-        price: "$132.00",
-        pack: "1 pzas",
-        name_product: "TUBO RÍGIDO CORTO DE COBRE TIPO ”L”, TRAMO DE 1 M",
-      },
-      {
-        src: "img/301716_03.jpg",
-        sku: "301716,301715",
-        price: "$2,963.00",
-        pack: "1 pza",
-        name_product: "CORDÓN FLEXIBLE TIPO POT (SPT), 12 AWG - CAJA 100M",
-      },
-      {
-        src: "img/278686_2_1.jpg",
-        sku: "210838,210839",
-        price: "$4,620.00",
-        pack: "1 pza",
-        name_product: "CALENTADOR DE RÁPIDA RECUPERACIÓN ENERHIT, 7 L",
-      },
-      {
-        src: "img/618247_4.jpg",
-        sku: "618247",
-        price: "$499.00",
-        pack: "1 pza",
-        name_product: "FILTRO DE AGUA CON TECNOLOGÍA DE DISCOS 80 L",
-      },
-      {
-        src: "img/267118_1.jpg",
-        sku: "267118",
-        price: "$934.00",
-        pack: "1 pza",
-        name_product:
-          "VENTILADOR DE PISO DE 20 CON PERILLA DE TRES VELOCIDADES",
-      },
-    ],
-    items_product: [
-      {
-        src: "img/267925_1.jpg",
-        href: "https://iusa.com.mx/catalogo_construccion/",
-        percent: "18%",
-        price: "$4,155.00",
-        less: "$3,777.00",
-        name_product: "CALENTADOR IUSA DE RÁPIDA RECUPERACIÓN, 5L, GAS LP",
-      },
-      {
-        src: "img/lbl-iusa-26_principal.jpg",
-        href: "https://iusa.com.mx/catalogo_construccion/",
-        percent: "25%",
-        price: "$8,522.00",
-        less: "$7,747.00",
-        name_product: "CALENTADOR SOLAR PRIMO DE TUBOS AL VACÍO",
-      },
-      {
-        src: "img/617035_01.jpg",
-        href: "https://iusa.com.mx/catalogo_construccion/",
-        percent: "20%",
-        price: "$8,236.00",
-        less: "$7,100.00",
-        name_product: "MOTOBOMBA A GASOLINA PARA ALTA CARGA 6.5 HP",
-      },
-      {
-        src: "img/268458_1.jpg",
-        href: "https://iusa.com.mx/catalogo_construccion/",
-        percent: "38%",
-        price: "$14,800.00",
-        less: "$17,168.00",
-        name_product: "AIRE ACONDICIONADO MINI SPLIT, MASTERFRIZ 2023",
-      },
-      {
-        src: "img/619049_01.jpg",
-        href: "https://iusa.com.mx/catalogo_construccion/",
-        percent: "10%",
-        price: "$14,800.00",
-        less: "$17,168.00",
-        name_product: "ROTOMARTILLO 750 W",
-      },
-    ],
-    brand: [
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/iusa.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/iusacobre.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/iusaconduit.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/iusaflow.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/iusagas.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/iusaplus.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/iusapvc.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/iusatek.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/iusasol.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/enerhit.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/kronius.jpg",
-      },
-      {
-        src: "https://www.iusa.com.mx/assets/logos/marcas/precimex.jpg",
-      },
-    ],
-  }),
+  data() {
+    return {
+      data: null,
+      switch1: true,
+      skill: 20,
+      knowledge: 33,
+      power: 14,
+      ind_1: 0,
+      headers: [
+        {
+          text: "Concepto",
+          align: "start",
+          value: "name",
+        },
+        { text: "Octubre 22", value: "month" },
+      ],
+      concepto: [
+        {
+          name: "Facturacón neta",
+          month: "$0.00",
+        },
+        {
+          name: "Renglonaje Caja / atado del trimestr del día",
+          month: "0",
+        },
+        {
+          name: "Renglones nuevos en el trimestre al dia (Total últimos 4 trims 0)",
+          month: "0",
+        },
+        {
+          name: "Renglones din re-order en el trimestre a día",
+          month: "0",
+        },
+        {
+          name: "Renglones disponibles para pedido especial de PNC",
+          month: "12,956",
+        },
+      ],
+      headers_time: [
+        {
+          text: "Pedidos Totales",
+          align: "start",
+          value: "name",
+        },
+        { text: "Promedio de días de entrega", value: "time" },
+      ],
+      time: [
+        {
+          name: "Ent en 1 día hábil:",
+          time: "(0%)",
+        },
+        {
+          name: "Ent en 2 días hábiles:",
+          time: "(0%)",
+        },
+        {
+          name: "Ent en 3 días hábiles:",
+          time: "(0%)",
+        },
+      ],
+      headers_niv: [
+        {
+          text: "Niveles de Servicio",
+          align: "start",
+          value: "name",
+        },
+        { text: "Percent", value: "niv" },
+      ],
+      niv: [
+        {
+          name: "Nivel de Servicio Primera Factura:",
+          niv: "0.0%",
+        },
+        {
+          name: "Nivel de Servicio Real (sin BO repetido):",
+          niv: "0.0%",
+        },
+        {
+          name: "Tiempode entrega (días Hábiles):",
+          niv: "0.0%",
+        },
+      ],
+      headers_res: [
+        {
+          text: "Campos",
+          align: "start",
+          value: "name",
+        },
+        { text: "Precio", value: "res" },
+      ],
+      res: [
+        {
+          name: "Reserva de Garantía:",
+          res: "0.0%",
+        },
+        {
+          name: "Notas de devolución:",
+          res: "0.0%",
+        },
+      ],
+      headers_bono: [
+        {
+          text: "Bono",
+          align: "start",
+          value: "name",
+        },
+        { text: "Estatus", value: "est" },
+      ],
+      bono: [
+        {
+          name: "Bono x Pago Anticipado**:",
+          est: "Pendiente",
+        },
+        {
+          name: "Bono x Apoyo a la Marca:",
+          est: "Pendiente",
+        },
+      ],
+      headers_ben: [
+        {
+          text: "Beneficios",
+          align: "start",
+          value: "name",
+        },
+        { text: "Estatus", value: "est" },
+      ],
+      ben: [
+        {
+          name: "% de beneficios adicionales:",
+          est: "Pendiente",
+        },
+        {
+          name: "Total de beneficios adicionales:",
+          est: "Pendiente",
+        },
+      ],
+    };
+  },
+  async mounted() {
+    let self = this;
+    self.getCustomerInformation();
+  },
+  methods: {
+    getCustomerInformation() {
+      axios
+        .post("getCustomerInformation", {
+          client_code: "0000002674",
+          society: "217",
+          organization: "IUS2",
+          channel: "DT",
+        })
+        .then((response) => {
+          console.log(response.data);
+          this.data = response.data;
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  },
 };
 </script>
 

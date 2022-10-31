@@ -33,7 +33,7 @@
                     bandeja de entrada.
                   </p>
                   <p></p>
-                  <img src="img/mailing-register.svg" alt="">
+                  <img src="img/mailing-register.svg" alt="" />
                   <p></p>
                 </v-card-text>
               </v-row>

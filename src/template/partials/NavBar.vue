@@ -6,9 +6,10 @@
           style="width: 100%; height: 100%"
           src="img/logo_iusa_w.svg"
         ></v-img>
-        
       </v-toolbar-title>
-      <h5 class="ml-5">IUSA EN LÍNEA</h5>
+      <h5 class="ml-5" style="font-weight: 500; margin-top: 10px">
+        IUSA EN LÍNEA
+      </h5>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon>fas fa-user-circle</v-icon>
@@ -34,33 +35,21 @@
     >
       <div style="color: #fff">
         <v-btn icon style="color: #fff !important">
-          <v-icon>mdi-arrow-collapse-down</v-icon>
-        </v-btn>
-        <label>Estados de Cuenta</label>
-      </div>
-      <div style="color: #fff">
-        <v-btn icon style="color: #fff !important">
           <v-icon>mdi-format-list-bulleted</v-icon>
         </v-btn>
-        <label>Lista de Precios</label>
+        <label>Generales</label>
       </div>
       <div style="color: #fff">
         <v-btn icon style="color: #fff !important">
-          <v-icon>mdi-storefront-outline</v-icon>
+          <v-icon>mdi-shopping-outline</v-icon>
         </v-btn>
-        <label>Tienda de Éxito</label>
-      </div>
-      <div style="color: #fff">
-        <v-btn icon style="color: #fff !important">
-          <v-icon>mdi-water-outline</v-icon>
-        </v-btn>
-        <label>Solicitud Rotulación</label>
+        <label>Pedidos</label>
       </div>
       <div style="color: #fff">
         <v-btn icon style="color: #fff !important">
           <v-icon>mdi-flare</v-icon>
         </v-btn>
-        <label>Exhibidores</label>
+        <label>Consulta</label>
       </div>
       <div style="color: #fff">
         <v-btn icon style="color: #fff !important">
@@ -70,9 +59,15 @@
       </div>
       <div style="color: #fff">
         <v-btn icon style="color: #fff !important">
-          <v-icon>mdi-play-box-multiple</v-icon>
+          <v-icon>mdi-cart-minus</v-icon>
         </v-btn>
-        <label>Media Center</label>
+        <label>Productos Descontinuados</label>
+      </div>
+      <div style="color: #fff">
+        <v-btn icon style="color: #fff !important">
+          <v-icon>mdi-reload</v-icon>
+        </v-btn>
+        <label>Actualización de Precios y Productos</label>
       </div>
     </v-toolbar>
     <v-toolbar
@@ -103,48 +98,7 @@
         <v-icon>mdi-play-box-multiple</v-icon>
       </v-btn>
     </v-toolbar>
-    <!-- <v-navigation-drawer v-model="drawer" absolute temporary>
-      <v-list nav dense>
-        <v-list-item-group
-          v-model="group"
-          active-class="deep-purple--text text--accent-4"
-        >
-          <router-link :to="{ name: 'Home' }" class="nav-link active">
-            <v-list-item>
-              <v-list-item-icon>
-                <v-icon>mdi-home</v-icon>
-              </v-list-item-icon>
-              <v-list-item-title>Home</v-list-item-title>
-            </v-list-item>
-          </router-link>
-          <v-list-item>
-            <v-list-item-icon>
-              <v-icon>mdi-account</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Account</v-list-item-title>
-          </v-list-item>
-          <v-list-item @click.prevent="signOut">
-            <v-list-item-icon>
-              <v-icon>mdi-logout</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Cerrar sesión</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer> -->
     <v-navigation-drawer v-model="drawer" absolute temporary>
-      <!-- <v-list-item>
-        <v-list-item-avatar>
-          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
-        </v-list-item-avatar>
-
-        <v-list-item-content>
-          <v-list-item-title>John Leider</v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-
-      <v-divider></v-divider> -->
-
       <v-list nav dense>
         <v-list-item-group
           v-model="group"

@@ -19,17 +19,20 @@
                 padding-right: 50px;
                 padding-bottom: 10px;
                 margin-top: 20px;
+                border-radius: 19px;
               "
             >
               <v-row>
                 <v-card-text class="mt-7">
-                  <img
-                    src="img/logo-iusa-solicitud@2x.png"
-                    alt=""
-                    width="95"
-                    class="mt-n5"
-                  />
-                  <h6>
+                  <router-link :to="{ name: 'Home' }">
+                    <img
+                      src="img/propuesta-1-x2.svg"
+                      alt=""
+                      width="200"
+                      class="mt-n5"
+                    />
+                  </router-link>
+                  <h6 class="mt-5 mb-5">
                     <v-icon style="color: #000">
                       mdi-check-circle-outline
                     </v-icon>
@@ -170,18 +173,27 @@
                     <v-row class="mt-n5" style="color: rgb(153, 153, 153)">
                       <p>
                         Al hacer click en registrar, acepta los
-                        <strong style="color: red"
-                          >Términos y condiciones de uso </strong
+                        <strong style="color: red">
+                          <a
+                            href="https://www.tiendaiusa.com/terminos-y-condiciones"
+                            target="_blank"
+                            >Términos y condiciones de uso
+                          </a></strong
                         >de IUSA en línea.
                       </p>
                     </v-row>
                     <v-row style="color: rgb(153, 153, 153)" class="mt-n1">
                       <p>
                         Para obtener más información acerca de cómo IUSA en
-                        línea recopila, utiliza, comparte protege tus datos
+                        línea recopila, utiliza, comparte y protege tus datos
                         personales, consulta nuestra
                         <strong style="color: red"
-                          >Política de privacidad</strong
+                          ><a
+                            href="https://www.tiendaiusa.com/aviso-de-privacidad"
+                            target="_blank"
+                          >
+                            Política de privacidad
+                          </a></strong
                         >
                         de IUSA en línea.
                       </p>

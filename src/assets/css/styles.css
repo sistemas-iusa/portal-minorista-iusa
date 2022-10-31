@@ -33,3 +33,142 @@ nav {
     color: #dc3545;
     margin-right: 12px;
 }
+
+.blue-label label {
+    color: #0000FF !important;
+    font-weight: bold;
+}
+
+.red-label label {
+    color: red !important;
+    font-weight: bold;
+}
+
+.gold-label label {
+    color: #DAA520 !important;
+    font-weight: bold;
+}
+
+.green-label label {
+    color: #25D366 !important;
+    font-weight: bold;
+}
+
+.switch-center {
+    display: flex;
+    justify-content: center;
+  }
+
+  .border-title.v-card {
+    border-width:20px !important;
+    color: green !important;
+}
+
+.button-style button{
+    background-color: #2fd410;
+    color: #fff;
+    text-transform: none;
+    font-weight: 800;
+}
+
+.text-big-num {
+    font-size: 40px;
+    color: black !important;
+}
+
+.text-general {
+    font-size: 20px;
+    font-weight: bold;
+    color: gray !important;
+}
+
+.text-desp {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0000FF !important;
+}
+
+.text-niv {
+    font-size: 20px;
+    font-weight: bold;
+    color: red !important;
+}
+
+.text-gold {
+    font-size: 20px;
+    font-weight: bold;
+    color: #DAA520 !important;
+}
+
+.boder-side{
+    border-left: 1px solid #cccccc !important
+}
+
+.boder-side-small{
+    border-left: 1px solid #f2f2f2 !important
+}
+
+.black-label label {
+    color: rgba(0, 0, 0) !important;
+    font-weight: bold;
+}
+
+.text-header-anounce{
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 5px;
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+
+.text-header-anounce-subtitle{
+    color: black;
+    font-size: 25px;
+    font-weight: lighter;
+    margin-left: 5px;
+    vertical-align: bottom;
+    margin-right: 5px;
+}
+
+.text-header-red{
+    color: red;
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 5px;
+    vertical-align: bottom;
+    margin-right: 5px;
+    
+}
+
+.icon-red {
+   color: red;
+}
+
+.text-light-gray{
+    color: gray;
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.text-dark-bold{
+    color: #000;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.text-dark-card{
+    color: #000;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.text-dark-lider{
+    color: #000;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.text-dark-decrip{
+    color: #000;
+    font-size: 14px;
+}
